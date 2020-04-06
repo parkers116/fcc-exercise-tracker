@@ -24,7 +24,7 @@ exports.post_add = (req, res, next) => {
         }
         res.json({
           username: usersData.username,
-          _id: usersData.userId,
+          _id: usersData._id,
           description: exercisesData.description,
           duration: exercisesData.duration,
           date: exercisesData.date,
