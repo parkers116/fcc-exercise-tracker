@@ -3,8 +3,13 @@ const Schema = mongoose.Schema;
 
 var exercisesSchema = new Schema(
   {
-    original_url: String,
-    short_url: Number
+    userId: { type: String, required: true },
+    description: { type: String, required: true },
+    duration: { type: Number, required: true },
+    date: {
+      type: Number,
+      default: new Date()
+    }
   },
   { collection: "Exercises" }
 );

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 var usersSchema = new Schema(
   {
-    username: { type: String, required: true },
+    username: { type: String, required: true, unique: true },
     _id: { type: String, default: shortid.generate }
   },
   { collection: "Users" }
