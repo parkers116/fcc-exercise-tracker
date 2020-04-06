@@ -27,7 +27,7 @@ exports.post_add = (req, res, next) => {
           _id: usersData._id,
           description: exercisesData.description,
           duration: exercisesData.duration,
-          date: exercisesData.date,
+          date: new Date(exercisesData.date).toDateString(),
         });
       });
     } else {
