@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-require("../models/users");
-require("../models/exercises");
+const mongoose = require('mongoose');
+require('../models/users');
+require('../models/exercises');
 
 exports.post_add = (req, res, next) => {
-  let Users = mongoose.model("Users");
-  let Exercises = mongoose.model("Exercises");
+  let Users = mongoose.model('Users');
+  let Exercises = mongoose.model('Exercises');
 
   Users.findById(req.body.userId, (err, usersData) => {
     if (err) {
@@ -23,14 +23,15 @@ exports.post_add = (req, res, next) => {
           return next(err);
         }
         res.json({
-          _id: exercisesData.userId,
+          username: usersData.username,
+          _id: usersData.userId,
           description: exercisesData.description,
           duration: exercisesData.duration,
-          date: exercisesData.date
+          date: exercisesData.date,
         });
       });
     } else {
-      return next({ status: 400, message: "userId not found" });
+      return next({ status: 400, message: 'userId not found' });
     }
   });
 };
